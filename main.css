@@ -1,5 +1,59 @@
 /* header */
 /* swipe */
 /* Articles */
+.topic-mass li {
+    list-style: none;
+}
+.topic-subtitle{
+    background-color: blueviolet;
+    /* color: aqua; */
+    /*線の基点とするためrelativeを指定*/
+    position: relative;
+    margin:0 10px;
+    padding-top: 5px;
+    display: block;
+    width: 40%;
+}
+
+/*線の基点位置*/
+.topic-subtitle::before,
+.topic-subtitle::after{
+    content:"";
+    /*絶対配置で線の位置を決める*/
+    position: absolute;
+    background-color:#0481A2;
+    top: -5px;
+    /* background */
+    /*線の形状*/
+    width: 2px;
+    height:0px;
+    /*アニメーションの指定*/
+    transition: all 0.1s linear;
+}
+
+.topic-subtitle::before{
+    left: 0;
+    bottom: 0;
+}
+.topic-subtitle::after{
+    right: 0;
+    top: 0;
+}
+.topic-subtitle::before.current,
+.topic-subtitle::after.current,
+.topic-subtitle::before:hover,
+.topic-subtitle::after:hover{
+  width: 100%;
+}
+.topic-subtitle:hover::before,
+.topic-subtitle:hover::after{
+    transition-delay: 0s;
+}
+.topic-subtitle.current topic-subtitle::before,
+.topic-subtitle.current topic-subtitle::after,
+.topic-subtitle:hover topic-subtitle::before,
+.topic-subtitle:hover topic-subtitle::after{
+  height: 100%;
+}
 /* YouTube, Event */
 /* Footer */
